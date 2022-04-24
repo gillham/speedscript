@@ -13,15 +13,21 @@ After proofreading it several times (and regularly catching my typing errors) I 
 
 # Building
 
-You can also just run the tool directly:
+You can build *SpeedScript* by running make:
 ```bash
-$ https://archive.org/details/Computes_Speedscrip
+$ make
+```
+
 You can also just run the tool directly:
 ```bash
 $ cl65 --cpu 6502x -o speedscript.prg -t c64 -C c64-asm.cfg speedscript.s
 ```
 
 Please submit a pull request, open an issue, or otherwise contact me for improvements to the build process.
+
+# Usage
+
+Transfer the speedscript.prg file to your Commodore 64 or emulator and load it.
 
 
 # Patches
