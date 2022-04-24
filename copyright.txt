@@ -1,0 +1,21 @@
+The following articles were originally published in COMPUTE! magazine, copyright 
+1985, COMPUTE! Publications, Inc.: "SpeedScript 3.0: All Machine Language Word 
+Processor For Commodore 64" (March), "SpeedScript 3.0: All Machine Language 
+Word Processor For Expanded VIC-20" (April), and "ScriptSave" (May). 
+
+Copyright 1985, COMPUTE! Publications, Inc. All rights reserved 
+
+Reproduction or translation of any part of this work beyond that permitted by Sec- 
+tions 107 and 108 of the United States Copyright Act without the permission of the 
+copyright owner is unlawful. 
+
+Printed in the United States of America 
+
+10 987654321 
+
+ISBN 0-942386-94-9 
+
+COMPUTE! Publications, Inc., Post Office Box 5406, Greensboro, NC 27403, (919) 
+275-9809, is one of the ABC Publishing Companies and is not associated with any 
+manufacturer of personal computers. Commodore 64 and VIC-20 are trademarks of 
+Commodore Electronics Limited. 
