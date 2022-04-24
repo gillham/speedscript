@@ -78,10 +78,11 @@ Commodore Electronics Limited.
 
 # Author's introduction and explanation of source code.
 Below is the type-in introduction offered in the book by the original author.
-He explains important details about the design of the editor and the laout of
+He explains important details about the design of the editor and the layout of
 the source code.
 
 
+# Comments from Charles Brannon
 <p align="center">
 Commodore 64<br>
 Source Code
