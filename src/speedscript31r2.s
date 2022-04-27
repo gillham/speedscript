@@ -582,7 +582,8 @@ FOUND:      DEX
 ; A bug in the original printed source code was fixed below.
 ; The original source had 'LDA #>MAIN-1' which didn't
 ; generate correct code matching the original binary.
-            LDA     #>MAIN
+; Parentheses were added for explicit precedence.
+            LDA     #>(MAIN-1)
             PHA
             LDA     #<MAIN-1
             PHA
