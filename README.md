@@ -1,6 +1,15 @@
 # Source code for *SpeedScript* by Charles Brannon
 
+## Intro
+
 This repository has the source code for the *SpeedScript* word processor by Charles Brannon for the Commodore 64.
+
+The "original" source as shown in the book in is the `original` directory.  Also in the `original` directory are monolithic versions converted to `ca65` format. The code in `src` has been split up into different modules, but by using segments it generates the exact same matching binary as originally released for *SpeedScript* 3.2r2. It is a bit clumsy right now, but is my first attempt and should get cleaned up a bit over time.
+
+More work is needed to add patches and use conditional assembly.  This will allow us to build the original binaries as well as versions with certain patches.  For example, building *SpeedScript-80* should be fairly straight-forward, while building *SpeedScript 128* would be more involved.  Short patches are more readily reverse engineered and integrated. I'm not aware of any source for *SpeedScript-80*, *SpeedScript 128*, or *SpeedScript 128 Plus* so it will have to be reverse engineered from a disassembly.
+
+## SpeedScript Overview
+
 The *SpeedScript* word processor was very popular as it was made freely available as a "type-in" program in COMPUTE! Magazine and COMPUTE! Gazette.  It was available for the Commodore 64/128, VIC-20, Atari 800, and Apple II.
 
 This repository has the source code as published by COMPUTE! Magazine in a book made up of several articles from the magazines.  The source code was not made available in the magazines.  Primarily due to its length I would assume and the fact that most end users wouldn't be able to use it.  They were interested in using the word processor directly and wouldn't have the PAL Assembler.
@@ -11,33 +20,32 @@ I could not find this source code anywhere on the Internet (other than the scans
 
 After proofreading it several times (and regularly catching my typing errors) I converted it to CA65 format. CA65 is the assembler portion of the CC65 cross compiler.  This is the same tool used for the reverse engineered GEOS source code. I hope to improve upon my work here and modularize the source code and add the ability to conditionally assemble additional features.  Many additional features were released as patches and I would like to incorporate them here as assembler source code.
 
-# Building
+## Building
 
 You can build *SpeedScript* by running make:
 ```bash
 $ make
 ```
 
-You can also just run the tool directly:
+You can also just run the tool directly on monolithic sources:
 ```bash
-$ cl65 --cpu 6502x -o speedscript.prg -t c64 -C c64-asm.cfg speedscript.s
+$ cl65 --cpu 6502x -o speedscript32r2.prg -t c64 -C c64-asm.cfg original/speedscript32r2.s
 ```
 
 Please submit a pull request, open an issue, or otherwise contact me for improvements to the build process.
 
-# Usage
+## Usage
 
 Transfer the speedscript.prg file to your Commodore 64 or emulator and load it.
 
 
-# Patches
+## Patches
 
-I would like to add other versions (like 3.2) as well as the various patches.  
+I would like to add other versions as well as various patches. I'm not that familiar with the patches, but now that I have the base code working I can investigate. The 80 column preview mode and cursor handling seem like fairly desirable patches.
 
-I'm not that familiar with the patches, but now that I have the base code working I will investigate.
 Potential patches:
  - 80 column mode for C128
- - 80 column preview for C64 (screen "printing" in 80 columns)
+ - 80 column preview for C64  (screen "printing" in 80 columns)
  - Cursor improvements (Easy Cursor patch for 3.2)
  - SpeedScript 128 (major rewrite)
  - SpeedScript 128 Plus
@@ -49,7 +57,8 @@ Please submit a pull request, open an issue, or otherwise contact me if you have
 
 
 
-# Copyright / License information
+## Copyright / License information
+
 The information below is an excerpt from the original printed book.
 
 <pre>
@@ -82,7 +91,8 @@ He explains important details about the design of the editor and the layout of
 the source code.
 
 
-# Comments from Charles Brannon
+## Source Code Introduction from Charles Brannon
+<hr>
 <p align="center">
 Commodore 64<br>
 Source Code
@@ -179,7 +189,3 @@ stantly called, but it's mapped out when the program needs to
 write to or read from the buffer, which is stored beneath the
 I/O area and the Kernal. Refer to the memory map shown on
 page 126.
-
-##*SpeedScript 3.1* Source code for Commodore 64
-... source code follows (in another file) ...
-

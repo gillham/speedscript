@@ -3,3 +3,10 @@
 
 # Object files.
 *.o
+
+# LST files
+*.lst
+
+# MAP files
+*.map
+
