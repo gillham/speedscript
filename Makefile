@@ -26,9 +26,15 @@ SPEEDSCRIPT_SOURCES= \
 	src/delete.s \
 	src/control.s
 
+INSTANT80_SOURCES= \
+	$(SPEEDSCRIPT_SOURCES) \
+	src/instant80.s
+
 SPEEDSCRIPT_OBJS=$(SPEEDSCRIPT_SOURCES:.s=.o)
 
-all: speedscript31r2.prg speedscript32r1.prg speedscript32r2.prg speedscriptmodular.prg cksum
+INSTANT80_OBJS=$(INSTANT80_SOURCES:%.s=build/instant80/%.o)
+
+all: speedscript31r2.prg speedscript32r1.prg speedscript32r2.prg speedscriptmodular.prg speedscript-80.prg cksum
 
 %.prg: original/%.s
 	@echo Building $@ ...
@@ -45,9 +51,22 @@ speedscript32r2.prg: original/speedscript32r2.s
 	$(AS) $(ASFLAGS) -l $@.lst -o $@ $<
 	@echo ""
 
+build/instant80/%.o: %.s
+	@echo Building $@ ...
+	@mkdir -p $(@D)
+	$(AS) $(ASFLAGS) -l $@.lst -o $@ $<
+	@echo ""
+
 speedscriptmodular.prg: $(SPEEDSCRIPT_OBJS) speedscript.cfg
 	@echo Building $@ ...
-	$(LD) -C speedscript.cfg $(SPEEDSCRIPT_OBJS) c64.lib -m $@.map -o $@ 
+	$(LD) -C speedscript.cfg $(SPEEDSCRIPT_OBJS) c64.lib -Ln $@.label -m $@.map -o $@ 
+	@echo ""
+
+
+speedscript-80.prg: ASFLAGS += -DINSTANT80
+speedscript-80.prg: $(INSTANT80_OBJS) speedscript.cfg
+	@echo Building $@ ...
+	$(LD) -C speedscript.cfg $(INSTANT80_OBJS) c64.lib -Ln $@.label -m $@.map -o $@ 
 	@echo ""
 
 
@@ -67,7 +86,10 @@ cksum:
 	@md5sum speedscriptmodular.prg
 	@grep ss32r2 tests/official.md5sum.txt
 	@echo ""
+	@md5sum speedscript-80.prg
+	@grep speedscript-80 tests/official.md5sum.txt
+	@echo ""
 
 clean:
-	rm -f *.prg *.lst *.map src/*.o src/*.lst
+	rm -fr *.prg *.lst *.map src/*.o src/*.lst build/
 

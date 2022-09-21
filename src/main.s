@@ -31,7 +31,11 @@
 ; are, we know that SpeedScript has been
 ; run before, so we avoid the ERASE
 ; routine to preserve the text in memory.
+.ifdef INSTANT80
+BEGIN:      JSR     INIT80
+.else
 BEGIN:      JSR     INIT
+.endif
             LDA     #$CB
             CMP     FIRSTRUN
             STA     FIRSTRUN

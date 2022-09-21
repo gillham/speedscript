@@ -80,6 +80,7 @@ RETCHAR     =       31
 .global HIGHLIGHT
 .global HOME
 .global HUNT
+.global INIT
 .global INIT2
 .global INPUT
 .global INSBLOCK
@@ -221,6 +222,13 @@ RETCHAR     =       31
 .global SAVCOL
 .global LINEFEED
 .global BLINKFLAG
+
+;
+; Optional features
+;
+.ifdef INSTANT80
+.global INIT80
+.endif
 
 ;
 ; end-of-file
