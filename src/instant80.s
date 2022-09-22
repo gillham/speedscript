@@ -43,7 +43,11 @@ INIT80:
       sei                               
       lda  #$CC                         
       sta  LOCTEXEND+1                  
-      lda  #$27                         
+.ifdef EASYCURSOR
+      lda  #$28
+.else
+      lda  #$27
+.endif
       sta  LOCLDEND+1                   
       lda  #$2D                         
       sta  LOCOPENCL+1                  

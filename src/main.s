@@ -380,4 +380,16 @@ XITMSG:     .asciiz "EXIT SpeedScript"
 ;
 ; Some padding to match the official release.
             .byte   00
+
+;
+; Padding for when Easy Cursor is used
+; without Instant 80.  Easy Cursor relocates
+; to 25xx and we need to fix up padding.
+;
+.ifdef EASYCURSOR
+.ifndef INSTANT80
+.segment    "INSTPAD"
+            .res    256
+.endif
+.endif
 END:        .END            ;+$100 is TEXSTART

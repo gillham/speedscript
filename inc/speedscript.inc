@@ -229,6 +229,11 @@ RETCHAR     =       31
 .ifdef INSTANT80
 .global INIT80
 .endif
+.ifdef EASYCURSOR
+.global ECLINEUP
+.global ECLINEDOWN
+.global ECSAVE
+.endif
 
 ;
 ; end-of-file

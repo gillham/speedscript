@@ -5,5 +5,7 @@ a30b3090ef72cd039e1387c7557a4654  official/ss10.c64.prg
 3574a1891269f070cd91c6f184c468a6  official/ss31r1.c64.prg
 766e034995bf011b33d6d0e03a7d6303  official/ss31r2.c64.prg
 2477380f70de848e2e329fed8a141549  official/ss32r1.c64.prg
+961412b626d59960b8cf97b4c763cb6b  official/ss32r2-ec.c64.prg
+68b0ffc5141f0ba63b67201cc5519519  official/ss32r2-i80-ec.c64.prg
+258b9aca034cb77ee4166ebbd851b0a2  official/ss32r2-i80.c64.prg
 d805e591accd47f0df937522204eb7cc  official/ss32r2.c64.prg
-258b9aca034cb77ee4166ebbd851b0a2  official/speedscript-80.c64.prg

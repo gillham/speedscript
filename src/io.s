@@ -29,7 +29,11 @@ TSAVE:      JSR     TOPCLR
             LDX     LASTLINE
             LDY     LASTLINE+1
             LDA     #TEX
+.ifdef EASYCURSOR
+            JSR     ECSAVE
+.else
             JSR     SAVE
+.endif
             BCS     ERROR
 
 ; Location $90 is the value of the
