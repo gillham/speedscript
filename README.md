@@ -31,12 +31,64 @@ You can also just run the tool directly on monolithic sources:
 ```bash
 $ cl65 --cpu 6502x -o speedscript32r2.prg -t c64 -C c64-asm.cfg original/speedscript32r2.s
 ```
+Running make also builds `speedscript-80.prg` which integrates the *Instant 80* patch that provides a soft ware 80 column (or soft-80) preview to screen.
 
 Please submit a pull request, open an issue, or otherwise contact me for improvements to the build process.
 
 ## Usage
 
-Transfer the speedscript.prg file to your Commodore 64 or emulator and load it.
+Transfer the `speedscript.prg` or `speedscript-80.prg` file to your Commodore 64 or emulator and load it. 
+```
+READY.
+LOAD"SPEEDSCRIPT",8
+
+SEARCHING FOR SPEEDSCRIPT
+LOADING
+READY.
+RUN
+```
+
+Here is a quick reference table of *SpeedScript* keystrokes.
+
+| Keystroke  | Function |
+| ------------- | ------------- |
+| CTRL A | Change case (of letter under cursor) |
+| CTRL B | Change border color  |
+| CTRL D | Delete (Sentence, Word, Paragraph) (to the left) |
+| CTRL E | Erase (Sentence, Word, Paragraph) (to the right) |
+| CTRL G | Global search and replace |
+| CTRL H | Hunt for phrase <br> with SHIFT: Select hunt phrase |
+| CTRL I | Enter/exit insert mode |
+| CTRL J | Replace <br> with SHIFT: Select replace phrase |
+| CTRL K | Kill buffer |
+| CTRL L | Change text character color |
+| CTRL P | Print |
+| CTRL R | Restore buffer |
+| CTRL V | Verify |
+| CTRL X | Transpose characters |
+| CTRL Z | Go to end of text |
+| CTRL = | Display amount of free memory |
+| CTRL ⇧ | Send disk command or read error channel |
+| CTRL 4 | Display disk directory |
+| CTRL £ | Enter format (printer) commands |
+| CTRL 3 | Commodore 64 only: Same as CTRL-£ |
+| SHIFT CTRL P | Print to (Screen, Disk, Printer) with options |
+| CLR/HOME | Press once to go to top of screen <br> Hold down to go to top of text <br> with SHIFT: Erase all text |
+| CRSR (left/right) | Move the cursor left one character <br> with SHIFT: Move the cursor right one character |
+| CRSR (up/down) | Go to next sentence <br> with SHIFT: Go to previous sentence |
+| RUN/STOP | Indent 5 spaces <br> with SHIFT: Insert 255 spaces |
+| RESTORE | Exit *SpeedScript* (Commodore 64) <br> with RUN/STOP: Exit *SpeedScript* (VIC-20) |
+| ⇦ | Backspace <br> with CTRL: Delete character under cursor and close up text <br> with SHIFT and CTRL: Delete all spaces from cursor to next character |
+| RETURN | Return mark <br> with SHIFT: End paragraph, add an extra return mark, and indent next paragraph |
+| INST/DEL | Delete character <br> with SHIFT: Insert space |
+| F1 | Next Word |
+| F2 | Previous Word |
+| F3 | Next Sentence |
+| F4 | Previous Sentence |
+| F5 | Next Paragraph |
+| F6 | Previous Paragraph |
+| F7 | Load |
+| F8 | Save|
 
 
 ## Patches
@@ -45,7 +97,7 @@ I would like to add other versions as well as various patches. I'm not that fami
 
 Potential patches:
  - 80 column mode for C128
- - 80 column preview for C64  (screen "printing" in 80 columns)
+ - ~~80 column preview for C64  (screen "printing" in 80 columns)~~
  - Cursor improvements (Easy Cursor patch for 3.2)
  - SpeedScript 128 (major rewrite)
  - SpeedScript 128 Plus
