@@ -33,7 +33,7 @@ You can also just run the tool directly on monolithic sources:
 ```bash
 $ cl65 --cpu 6502x -o speedscript32r2.prg -t c64 -C c64-asm.cfg original/speedscript32r2.s
 ```
-Running make also builds `speedscript-i80.prg` which integrates the *Instant 80* patch that provides a soft ware 80 column (or soft-80) preview to screen.  It also builds `speedscript-ec.prg` which integrates the *Easy Cursor* patch.  The `speedscript-i80-ec.prg` file combines both *Instant 80* and *Easy Cursor* in one program.
+Running make also builds `speedscript-i80.prg` which integrates the *Instant 80* patch that provides a software 80 column (or soft-80) preview to screen.  It also builds `speedscript-ec.prg` which integrates the *Easy Cursor* patch.  The `speedscript-i80-ec.prg` file combines both *Instant 80* and *Easy Cursor* in one program.
 
 Please submit a pull request, open an issue, or otherwise contact me for improvements to the build process.
 
@@ -95,7 +95,7 @@ Here is a quick reference table of *SpeedScript* keystrokes.
 
 ## Patches
 
-I would like to add other versions as well as various patches. I'm not that familiar with the patches, but now that I have the base code working I can investigate. The 80 column preview mode and cursor handling seem like fairly desirable patches.
+I would like to add other versions as well as various patches. I'm not that familiar with the patches, but now that I have the base code working I can investigate. ~~The 80 column preview mode and cursor handling seem like fairly desirable patches.~~ *Instant 80* and *Easy Cursor* have been integrated.  I'm still looking for other official (published in magazines) and unofficial patches.
 
 Potential patches:
  - 80 column mode for C128
