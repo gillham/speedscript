@@ -98,7 +98,7 @@ I would like to add other versions as well as various patches. I'm not that fami
 Potential patches:
  - 80 column mode for C128
  - ~~80 column preview for C64  (screen "printing" in 80 columns)~~
- - Cursor improvements (Easy Cursor patch for 3.2)
+ - ~~Cursor improvements (Easy Cursor patch for 3.2)~~
  - SpeedScript 128 (major rewrite)
  - SpeedScript 128 Plus
  - Your favorite patch...
