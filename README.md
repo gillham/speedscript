@@ -8,6 +8,8 @@ The "original" source as shown in the book in is the `original` directory.  Also
 
 More work is needed to add patches and use conditional assembly.  This will allow us to build the original binaries as well as versions with certain patches.  For example, building *SpeedScript-80* should be fairly straight-forward, while building *SpeedScript 128* would be more involved.  Short patches are more readily reverse engineered and integrated. I'm not aware of any source for *SpeedScript-80*, *SpeedScript 128*, or *SpeedScript 128 Plus* so it will have to be reverse engineered from a disassembly.
 
+Note that *SpeedScript-80* is a set of patches for 80 column mode on a C128 in C64 mode.  There is a *Instant 80* patch for the C64 that provides a software based 80 column preview with the print to screen feature. 
+
 ## SpeedScript Overview
 
 The *SpeedScript* word processor was very popular as it was made freely available as a "type-in" program in COMPUTE! Magazine and COMPUTE! Gazette.  It was available for the Commodore 64/128, VIC-20, Atari 800, and Apple II.
@@ -31,7 +33,7 @@ You can also just run the tool directly on monolithic sources:
 ```bash
 $ cl65 --cpu 6502x -o speedscript32r2.prg -t c64 -C c64-asm.cfg original/speedscript32r2.s
 ```
-Running make also builds `speedscript-80.prg` which integrates the *Instant 80* patch that provides a soft ware 80 column (or soft-80) preview to screen.
+Running make also builds `speedscript-i80.prg` which integrates the *Instant 80* patch that provides a soft ware 80 column (or soft-80) preview to screen.  It also builds `speedscript-ec.prg` which integrates the *Easy Cursor* patch.  The `speedscript-i80-ec.prg` file combines both *Instant 80* and *Easy Cursor* in one program.
 
 Please submit a pull request, open an issue, or otherwise contact me for improvements to the build process.
 
