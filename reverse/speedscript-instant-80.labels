@@ -1,0 +1,35 @@
+LOCLDEND    09A9 ; Where the high byte of END is loaded. (the operand, not LDA)
+LOCTEXEND   09B0 ; Where the value is that is stored to TEXEND+1.
+LOCOPENCL   1778 ; Where the 'JSR OPEN' call is in SpeedScript proper.
+LOCCLOSECL  187F ; Where the 'JSR CLOSE' call is in SpeedScript proper.
+INIT80      2500
+OPEN80      252D
+BLNKLOOP80  254E ; Appears to clear screen / blank bitmap memory.
+BLNKSTRD80  255B ; Appears to clear screen blank bitmap. "stride" loop.
+CLKOPEN80   2575 ; Pulls A from the stack and calls KERNAL OPEN function.
+CLOSE80     2579
+CLVICSKP80  2593
+CHROUT80    2597
+OUTPUT80    25A1
+NOTCRLF80   25B8  ; OUTPUT80 branches here if not $0D character arg.
+NOTUNPRT80  25C0  ; OUTPUT80 skips first 32 characters as unprintable?
+DOOUTPUT80  25C3  ; Seems like the start of the actual drawing?
+DRAWLOOP80  25F7  ; Part of the drawing loop.
+NOTINVRS80  25D6  ; If $C7 is not set we aren't asking for inverse?
+DRWLOOP280  261C  ; Loop to copy characters / draw into bitmap?
+DRWCHRDN80  2629  ; Done drawing characters? (or creating 4x8 font characters?)
+DRWLOOP380  263B  ; Loop to ORA/STA characters into bitmap?
+FNSHOUT80   265D
+SCROLL80    2673  ; Processes $0D character, scrolls screen I think.
+LINECPYS80  2682  ; Self modified code to scroll / read VIC bitmap memory? Source.
+LINECPYD80  2685  ; Self modified code to scroll / write VIC bitmap memory? Destination.
+DRWLOOP480  269C  ; Loop to copy color memory or something?  FE00/FE40
+CHRBNKTBL80 26AA  ; Some kind of lookup table for high bytes?
+SOMEVAR180  26B2  ; Might be a pointer to something? (copied to ZP $FE)
+SOMEVAR280  26B3  ; Might be a pointer to something? (copied to ZP $FF)
+VICBANK80   26B4
+CHARARG80   26B5
+SAVEZPFE80  26B6  ; Location to save current ZP $FE value? (to restore later?)
+SAVEZPFF80  26B7  ; Location to save current ZP $FF value? (to restore later?)
+REMAINS80   26B8  ; Variable to track what is left to draw?
+DRAWBUF80   26B9  ; Location to draw into for bitmap?

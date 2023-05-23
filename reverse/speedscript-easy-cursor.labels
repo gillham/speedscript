@@ -1,0 +1,28 @@
+LOCJSRINITHIGH         080F ; The high byte of the "JSR INIT" (or "JSR INIT80")
+INSTALLEC              28BF
+INSTALLEC80            2918
+LOCLDENDEC80           2507
+PATCHSLEFTECL          0B8B ; SLEFT-1 low-byte in VECT: table   (loaded with $01)
+PATCHSLEFTECH          0B8C ; SLEFT-1 high-byte in VECT: table  (loaded with $28 for $2801)
+PATCHSRIGHTECL         0B8D ; SRIGHT-1 low-byte in VECT: table  (loaded with $24)
+PATCHSRIGHTECH         0B8E ; SRIGHT-1 high-byte in VECT: table (loaded with $28 for $2824)
+PATCHTSAVEECL          12D8 ; TSAVE: JSR SAVE call low-byte  (loaded with $41)
+PATCHTSAVEECH          12D9 ; TSAVE: JSR SAVE call high-byte (loaded with $28 for $2841)
+RELOCFIXUP1            2508 ; JSR destination high byte fix after moving. $28 becomes $25
+RELOCFIXUP2            250B ; JSR destination high byte fix after moving. $28 becomes $25
+LINEUPEC               2801 ; Move cursor UP one line (or as close as possible)
+LINEUPLOOPEC           2809 ; Move CURR up(screen)/back(towards start of buffer) max 36 ($24) stop at RETCHAR (return mark)?
+EXITTOCHECKEC          2813 ; Exits by JMP CHECK.
+MOVECURRUPEC           2818 ; Moves CURR back in buffer. If low-byte is zero, decrement high-byte.
+MOVECURRUP1EC          281F ; FIX: Decrements CURR low-byte (moves back one byte in buffer), LDA byte in buffer and returns.
+LINEDOWNEC             2824 ; Move cursor DOWN one line (or as close as possible)
+ECDOWNSTARTMOVE        282B ; Look for RETCHAR if so set x to 1 (dex later drops to zero and we exit)
+ECDOWNKEEPMOVE         2833 ; Increment CURR if it hits zero (wrap) inc CURR+1 (high byte)
+ECDOWNEXITCHECK        2839 ; Decrements max move (x) if zero, we are done.
+SAVEEC                 2841 ; Replacement SAVE with bug fix for overwriting a file.
+ECFINDCOLON            284F ; Looks for ':' in the input. (validated already?  seems like infinite loop if no ':' in INBUFF)
+ECSTARTSCRATCH         285A ; Sets up to open device and send S:<filename>
+ECSENDFILENAME         2891 ; Sends filename out command channel (for scratch operation)
+ECDOSCRATCH            289C ; Send linefeed / closes channels / prepares to call kernal save.
+ECDOSAVE               28B6 ; Restores args from stack and calls KERNAL SAVE routine.
+RELOCECLOOP            2901 ; Loop target for relocating $2801 to $2501 if no Instant80
