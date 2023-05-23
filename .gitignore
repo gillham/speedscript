@@ -4,6 +4,9 @@
 # Object files.
 *.o
 
+# LABEL files
+*.label
+
 # LST files
 *.lst
 
