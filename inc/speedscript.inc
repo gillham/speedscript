@@ -32,7 +32,7 @@ INDIR       =       $FD
 UNDERCURS   =       $02
 
 ; WINDCOLR: Color of command line
-; window supported by REFERSH. MAP
+; window supported by REFRESH. MAP
 ; is the 6510's built-in I/O port, used for
 ; mapping in and out ROMs from the
 ; address space. RETCHAR is the screen-
